@@ -17,6 +17,9 @@ jobs:
       - name: Instalar Typescript
         run: npm install -g typescript
 
+      - name: Instalar Tipos de Node.js
+        run: npm i --save-dev @types/node
+
       - name: Definir variable USERNAME
         run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
 
