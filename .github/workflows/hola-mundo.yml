@@ -1,0 +1,28 @@
+name: Aprendiendo Github Actions con Typescript
+run-name: ¡Estoy aprendiendo Github Actions!
+on: [push]
+
+jobs:
+  hola-mundo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v6.3.0
+        with:
+          node-version: 24.14.1
+
+      - name: Instalar Typescript
+        run: npm install -g typescript
+
+      - name: Definir variable USERNAME
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+
+      - name: Compilar Typescript
+        run: tsc
+
+      - name: Correr script
+        run: node dist/hola-mundo.ts
+  
