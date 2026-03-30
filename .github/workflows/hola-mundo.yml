@@ -14,11 +14,8 @@ jobs:
         with:
           node-version: 24.14.1
 
-      - name: Instalar Typescript
-        run: npm install -g typescript
-
-      - name: Instalar definiciones de tipo para Node.js
-        run: npm i @types/node
+      - name: Instalar Typescript y tipod de Node
+        run: npm install --save-dev typescript @types/node
 
       - name: Definir variable USERNAME
         run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
