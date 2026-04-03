@@ -8,15 +8,38 @@ on:
       
   pull_request:
     branches: [main, aprendiendo-github-actions]
-    types: [opened, synchronize, reopened]
-    paths: "*.ts"
+    types: [opened, synchronize, reopened] ## synchronize = ocurre un push a una rama con una PR abierta
+    paths: "*.ts" ## archivos que deben haber cambiado
 
   issues:
     types:
       - labeled
 
-  workflow_dispatch:
+  workflow_dispatch: ## ejecutar el workflow manualmente
     inputs:
       lenguaje_favorito:
+        description: "Lenguaje favorito"
+        default: JavaScript
+        required: true
+        type: choice
+        options:
+          - Python
+          - JavaScript
+          - Go
+      nombre:
+        description: "Mi nombre"
+        required: true
+        default: Edwin
+        type: string
+
+  schedule:
+    - cron: "30 5,17 * * *" ## se ejecuta a las 5:30 A.M. y P.M. durante todo el año
+      timezone: 'America/El_Salvador'
+        
+
+
+
+
+        
     
   
