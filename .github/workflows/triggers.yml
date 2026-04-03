@@ -39,6 +39,7 @@ on:
 jobs:
   hola-mundo-manual:
     runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.2
