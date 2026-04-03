@@ -8,7 +8,7 @@ on:
       
   pull_request:
     branches: [main, aprendiendo-github-actions]
-    types: [opened, synchronize, reopened] ## synchronize = ocurre un push a una rama con una PR abierta
+    types: [opened, synchronize, reopened] ## synchronize = cuando ocurre un push a una rama con una PR abierta
     paths: "*.ts" ## archivos que deben haber cambiado
 
   issues:
