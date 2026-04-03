@@ -8,6 +8,22 @@ name: Paso 5, Aprende a usar las Variables de Entorno
 # Reference https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
   workflow_dispatch:
+    inputs:
+      lenguaje_favorito:
+        description: "Lenguaje favorito"
+        default: JavaScript
+        required: true
+        type: choice
+        options:
+          - Python
+          - JavaScript
+          - Go
+      nombre:
+        description: "Mi nombre"
+        required: true
+        default: Edwin
+        type: string
+
   push:
     branches:
       - aprendiendo-github-actions
