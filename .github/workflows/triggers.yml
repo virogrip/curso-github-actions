@@ -47,7 +47,7 @@ jobs:
       - name: Instalar Node.js
         uses: actions/setup-node@v6.3.0
         with:
-          node-version: 24.14.1
+          node-version: 22
 
       - name: Instalar Typescript y tipos de Node
         run: npm install --save-dev typescript @types/node
