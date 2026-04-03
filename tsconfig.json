@@ -3,6 +3,7 @@
         "target": "es2020",
         "module": "commonjs",
         "strict": true,
+        "rootDir": "./src",
         "outDir": "./dist",
         "types": ["node"]
     },
