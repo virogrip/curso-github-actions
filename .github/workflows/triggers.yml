@@ -1,0 +1,22 @@
+name: Triggers
+run-name: ¡Aprendiendo diferentes tipos de triggers!
+on: 
+  push:
+    branches:
+      - main
+      - aprendiendo-github-actions
+      
+  pull_request:
+    branches: [main, aprendiendo-github-actions]
+    types: [opened, synchronize, reopened]
+    paths: "*.ts"
+
+  issues:
+    types:
+      - labeled
+
+  workflow_dispatch:
+    inputs:
+      lenguaje_favorito:
+    
+  
