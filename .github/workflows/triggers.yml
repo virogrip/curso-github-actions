@@ -18,24 +18,6 @@ on:
         default: Edwin
         type: string
         
-  push:
-    branches:
-      - main
-      - aprendiendo-github-actions
-      
-  pull_request:
-    branches: [main, aprendiendo-github-actions]
-    types: [opened, synchronize, reopened] ## synchronize = cuando ocurre un push a una rama con una PR abierta
-    paths: "*.ts" ## archivos que deben haber cambiado
-
-  issues:
-    types:
-      - labeled
-
-  schedule:
-    - cron: "30 5,17 * * *" ## se ejecuta a las 5:30 A.M. y P.M. durante todo el año
-      timezone: 'America/El_Salvador'
-
 jobs:
   hola-mundo-manual:
     runs-on: ubuntu-latest
