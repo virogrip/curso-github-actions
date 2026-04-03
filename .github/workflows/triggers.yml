@@ -35,6 +35,36 @@ on:
   schedule:
     - cron: "30 5,17 * * *" ## se ejecuta a las 5:30 A.M. y P.M. durante todo el año
       timezone: 'America/El_Salvador'
+
+jobs:
+  hola-mundo-manual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v6.3.0
+        with:
+          node-version: 24.14.1
+
+      - name: Instalar TypeScript
+        run: npm install -g typescript
+        
+      - name: Definir nombre
+        run: echo "USERNAME=${{ inputs.nombre }}" >> $GITHUB_ENV
+        
+      - name: Definir lenguaje
+        run: echo "LANGUAGE=${{ inputs.lenguaje_favorito }}" >> $GITHUB_ENV
+
+      - name: Compilar typescript
+        run: tsc
+
+      - name: Correr script
+        run: node dist/lenguaje-favorito.js
+
+      
+        
         
 
 
