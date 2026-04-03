@@ -6,5 +6,5 @@
         "outDir": "./dist",
         "types": ["node"]
     },
-    "include": ["*.ts"]
+    "include": ["src/**/*.ts"]
 }
