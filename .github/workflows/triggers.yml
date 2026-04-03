@@ -1,6 +1,20 @@
 name: Triggers
 run-name: ¡Aprendiendo diferentes tipos de triggers!
 on: 
+  push:
+    branches:
+      - main
+      - aprendiendo-github-actions
+
+  pull_request:
+    branches: [main, aprendiendo-github-actions]
+    types: [opened, synchronize, reopened] ## synchronize = cuando ocurre un push a una rama con una PR abierta
+    paths: "*.ts" ## archivos que deben haber cambiado
+
+  issues:
+    types:
+      - labeled
+
   workflow_dispatch:
     inputs:
       lenguaje_favorito:
@@ -17,7 +31,11 @@ on:
         required: true
         default: Edwin
         type: string
-        
+
+  schedule:
+    - cron: "30 5,17 * * *" ## se ejecuta a las 5:30 A.M. y P.M. durante todo el año
+      timezone: 'America/El_Salvador'
+
 jobs:
   hola-mundo-manual:
     runs-on: ubuntu-latest
@@ -36,7 +54,7 @@ jobs:
 
       - name: Definir nombre
         run: echo "USERNAME=${{ inputs.nombre }}" >> $GITHUB_ENV
-        
+
       - name: Definir lenguaje
         run: echo "LANGUAGE=${{ inputs.lenguaje_favorito }}" >> $GITHUB_ENV
 
@@ -45,12 +63,6 @@ jobs:
 
       - name: Correr script
         run: node dist/lenguaje-favorito.js
-
-      
-        
-        
-
-
 
 
         
