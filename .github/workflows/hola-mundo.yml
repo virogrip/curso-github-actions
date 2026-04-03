@@ -24,5 +24,5 @@ jobs:
         run: tsc
 
       - name: Correr script
-        run: node dist/hola-mundo.js
+        run: node dist/hola-mundo.ts
   
