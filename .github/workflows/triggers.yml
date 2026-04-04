@@ -1,24 +1,21 @@
-name: Triggers
+name: Tipos de triggers
 run-name: ¡Aprendiendo diferentes tipos de triggers!
 on: 
   push:
     branches:
       - main
       - aprendiendo-github-actions
-
   pull_request:
     types: [opened, synchronize, reopened] ## synchronize = cuando ocurre un push a una rama con una PR abierta
     paths: ## archivos que deben haber cambiado
-      - '**.ts'
-      
+      - '**.ts'   
   issues:
     types:
       - labeled
-      
   workflow_dispatch:
     inputs:
       lenguaje_favorito:
-        description: "Lenguaje favorito"
+        description: 'Lenguaje favorito'
         default: JavaScript
         required: true
         type: choice
@@ -27,7 +24,7 @@ on:
           - JavaScript
           - Go
       nombre:
-        description: "Mi nombre"
+        description: 'Mi nombre'
         required: true
         default: Edwin
         type: string
@@ -62,3 +59,9 @@ jobs:
 
       - name: Correr script
         run: node dist/lenguaje-favorito.js
+  hola-mundo:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'workflow_dispatch' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
