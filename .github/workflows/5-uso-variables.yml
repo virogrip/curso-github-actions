@@ -1,4 +1,4 @@
-name: Tipos de triggers (step 5)
+name: Tipos de triggers (5-uso-variables.yml)
 run-name: ¡Aprendiendo diferentes tipos de triggers!
 on: 
   push:
