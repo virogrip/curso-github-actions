@@ -7,10 +7,21 @@ name: Paso 5, Aprende a usar las Variables de Entorno
 # This will run every time we TBD-step-5-event-desc
 # Reference https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
+  push:
+    branches:
+      - main
+      - aprendiendo-github-actions
+  pull_request:
+    types: [opened, synchronize, reopened] ## synchronize = cuando ocurre un push a una rama con una PR abierta
+    paths: ## archivos que deben haber cambiado
+      - '**.ts'   
+  issues:
+    types:
+      - labeled
   workflow_dispatch:
     inputs:
       lenguaje_favorito:
-        description: "Lenguaje favorito"
+        description: 'Lenguaje favorito'
         default: JavaScript
         required: true
         type: choice
@@ -19,14 +30,14 @@ on:
           - JavaScript
           - Go
       nombre:
-        description: "Mi nombre"
+        description: 'Mi nombre'
         required: true
         default: Edwin
         type: string
 
-  push:
-    branches:
-      - aprendiendo-github-actions
+  schedule:
+    - cron: "30 5,17 * * *" ## se ejecuta a las 5:30 A.M. y P.M. durante todo el año
+      timezone: 'America/El_Salvador'
 
 # Reference https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
