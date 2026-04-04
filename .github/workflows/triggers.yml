@@ -3,7 +3,8 @@ run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
 on:
   push:
     branches:
-      - master
+      - main
+      - aprendiendo-github-actions
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
