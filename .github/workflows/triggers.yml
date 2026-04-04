@@ -8,11 +8,13 @@ on:
 
   pull_request:
     types: [opened, synchronize, reopened] ## synchronize = cuando ocurre un push a una rama con una PR abierta
-
+    paths: ## archivos que deben haber cambiado
+      - '**.ts'
+      
   issues:
     types:
       - labeled
-
+      
   workflow_dispatch:
     inputs:
       lenguaje_favorito:
@@ -37,7 +39,6 @@ on:
 jobs:
   hola-mundo-manual:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch'
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.2
