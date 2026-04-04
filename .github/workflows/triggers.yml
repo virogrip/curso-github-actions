@@ -1,20 +1,12 @@
-name: Triggers
-run-name: ¡Aprendiendo diferentes tipos de triggers!
-on: 
-  push:
-    branches:
-      - main
-      - aprendiendo-github-actions
+name: Paso 5, Aprende a usar las Variables de Entorno
 
-  pull_request:
-    branches: [main, aprendiendo-github-actions]
-    types: [opened, synchronize, reopened] ## synchronize = cuando ocurre un push a una rama con una PR abierta
-    paths: "*.ts" ## archivos que deben haber cambiado
+# This step triggers after TBD-step-5-event-desc
+# This step sets STEP to X
+# This step closes <details id=5> and opens <details id=X>
 
-  issues:
-    types:
-      - labeled
-
+# This will run every time we TBD-step-5-event-desc
+# Reference https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
+on:
   workflow_dispatch:
     inputs:
       lenguaje_favorito:
@@ -32,9 +24,9 @@ on:
         default: Edwin
         type: string
 
-  schedule:
-    - cron: "30 5,17 * * *" ## se ejecuta a las 5:30 A.M. y P.M. durante todo el año
-      timezone: 'America/El_Salvador'
+  push:
+    branches:
+      - aprendiendo-github-actions
 
 jobs:
   hola-mundo-manual:
@@ -63,8 +55,3 @@ jobs:
 
       - name: Correr script
         run: node dist/lenguaje-favorito.js
-
-
-        
-    
-  
